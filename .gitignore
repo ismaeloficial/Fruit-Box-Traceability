@@ -1,16 +1,31 @@
 # macOS
 .DS_Store
 
+# Secretos (en cualquier nivel); las plantillas sí se versionan
+.env
+.env.*
+!.env.example
+firmware/src/config/network_config.h
+secrets.h
+*.pem
+*.key
+
 # PlatformIO (firmware)
 firmware/.pio/
 firmware/.venv/
+# Generados por PlatformIO con rutas absolutas de la máquina local
+firmware/.vscode/c_cpp_properties.json
+firmware/.vscode/launch.json
+firmware/.vscode/.browse.c_cpp.db*
+firmware/.vscode/ipch
 
 # Python (backend)
-backend/.venv/
-backend/__pycache__/
-backend/**/__pycache__/
-backend/*.pyc
-backend/.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
 
 # Mosquitto runtime state (config se versiona, datos/logs no)
 mosquitto/data/*
@@ -18,5 +33,15 @@ mosquitto/data/*
 mosquitto/log/*
 !mosquitto/log/.gitkeep
 
-# Frontend (futuro)
+# Frontend
 frontend/node_modules/
+frontend/dist/
+
+# Documentos y vídeos del TFG (se guardan fuera del repo)
+*.docx
+~$*
+*.mov
+*.MOV
+
+# Ajustes locales de herramientas
+.claude/settings.local.json
